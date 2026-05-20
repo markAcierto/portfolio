@@ -26,6 +26,7 @@
             line-height: 1.6;
             color: var(--text);
             background-color: var(--light);
+            scroll-behavior: smooth;
         }
 
         /* Navigation */
@@ -71,8 +72,8 @@
 
         /* Hero Section */
         .hero {
-            height: 80vh;
-            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            min-height: 90vh;
+            background: linear-gradient(rgba(44, 62, 80, 0.85), rgba(44, 62, 80, 0.85)), url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -81,12 +82,25 @@
             align-items: center;
             text-align: center;
             color: var(--white);
-            padding: 0 20px;
+            padding: 100px 20px 60px 20px;
             margin-top: 60px;
         }
 
+        /* Profile Picture Styling */
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 6px solid var(--white);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            margin-bottom: 25px;
+            object-fit: cover;
+            background-color: #fff;
+        }
+
         .hero h1 { font-size: 3.5rem; margin-bottom: 10px; }
-        .hero p { font-size: 1.2rem; max-width: 700px; }
+        .hero .subtitle { font-size: 1.5rem; color: var(--secondary); font-weight: 600; margin-bottom: 15px; }
+        .hero p { font-size: 1.1rem; max-width: 750px; opacity: 0.9; }
 
         /* Section Styling */
         section { padding: 80px 10%; }
@@ -124,7 +138,7 @@
             box-shadow: 0 4px 6px rgba(0,0,0,0.05);
         }
 
-        .service-box:hover { transform: translateY(-5px); }
+        .service-box:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0,0,0,0.1); }
         .service-box i { font-size: 2.5rem; color: var(--secondary); margin-bottom: 15px; }
 
         /* Experience Timeline */
@@ -134,10 +148,12 @@
             border-left: 5px solid var(--secondary);
             margin-bottom: 20px;
             border-radius: 0 8px 8px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
-        .exp-date { font-weight: bold; color: var(--secondary); }
-        .exp-title { font-size: 1.3rem; font-weight: bold; margin: 5px 0; }
-        .exp-location { font-style: italic; color: #666; margin-bottom: 10px; }
+        .exp-date { font-weight: bold; color: var(--secondary); display: block; margin-bottom: 5px;}
+        .exp-title { font-size: 1.3rem; font-weight: bold; margin: 5px 0; color: var(--primary); }
+        .exp-location { font-style: italic; color: #666; margin-bottom: 12px; }
+        .experience-item ul { margin-left: 20px; }
 
         /* Testimonials */
         .testimonial-grid {
@@ -151,6 +167,7 @@
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             font-style: italic;
+            position: relative;
         }
         .ref-name {
             display: block;
@@ -166,7 +183,7 @@
             grid-template-columns: 1fr 1fr;
             gap: 50px;
         }
-        .contact-info i { margin-right: 15px; color: var(--secondary); }
+        .contact-info i { margin-right: 15px; color: var(--secondary); width: 20px; }
         .contact-info div { margin-bottom: 20px; font-size: 1.1rem; }
         
         form input, form textarea {
@@ -175,28 +192,33 @@
             margin-bottom: 15px;
             border: 1px solid #ddd;
             border-radius: 4px;
+            font-size: 1rem;
         }
         form button {
             background: var(--secondary);
             color: white;
-            padding: 12px 30px;
+            padding: 12px 35px;
             border: none;
             border-radius: 4px;
             cursor: pointer;
             font-size: 1rem;
+            font-weight: 600;
+            transition: 0.3s;
         }
+        form button:hover { background: var(--primary); }
 
         footer {
             background: var(--primary);
             color: white;
             text-align: center;
-            padding: 20px;
+            padding: 30px;
         }
 
         @media (max-width: 768px) {
             .nav-links { display: none; }
             .contact-container, .testimonial-grid { grid-template-columns: 1fr; }
             .hero h1 { font-size: 2.2rem; }
+            .profile-img { width: 150px; height: 150px; }
         }
     </style>
 </head>
@@ -216,51 +238,54 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
+        <!-- THE PROFILE PICTURE -->
+        <img src="profile.jpg" alt="Reziel G. Santos" class="profile-img">
+        
         <h1>REZIEL G. SANTOS</h1>
-        <p>BSc Nursing | Personal Support Worker</p>
-        <p style="margin-top:20px;">Dedicated Healthcare Professional with over 10 years of experience providing holistic care, focusing on safety, dignity, and effective communication.</p>
+        <div class="subtitle">Personal Support Worker & Licensed RN</div>
+        <p>Empathic professional with over 10 years of experience providing holistic patient care. Dedicated to safety, dignity, and excellence in the healthcare field.</p>
     </section>
 
-    <!-- Qualifications/Services -->
+    <!-- Services Section -->
     <section id="services">
-        <h2 class="section-title">Professional Services</h2>
+        <h2 class="section-title">Core Competencies</h2>
         <div class="services-container">
             <div class="service-box">
-                <i class="fas fa-user-nurse"></i>
-                <h3>Holistic Patient Care</h3>
-                <p>Assisting with activities of daily living (ADLs), dressing, bathing, and hygiene with utmost dignity.</p>
+                <i class="fas fa-user-shield"></i>
+                <h3>Holistic Care</h3>
+                <p>Assisting with daily activities, hygiene, and dressing while ensuring maximum patient dignity and comfort.</p>
             </div>
             <div class="service-box">
-                <i class="fas fa-heartbeat"></i>
+                <i class="fas fa-notes-medical"></i>
                 <h3>Clinical Monitoring</h3>
-                <p>Expertise in monitoring vital signs, documenting progress, and managing intravenous infusions.</p>
-            </div>
-            <div class="service-box">
-                <i class="fas fa-wheelchair"></i>
-                <h3>Mobility Support</h3>
-                <p>Safe patient transfers, mobility exercises, and ensuring a hazard-free environment.</p>
+                <p>Extensive experience in documentation, monitoring vital signs, and performing duties under safety protocols.</p>
             </div>
             <div class="service-box">
                 <i class="fas fa-hands-helping"></i>
-                <h3>Emotional Support</h3>
-                <p>Developing rapport with patients and families to boost morale and mental well-being.</p>
+                <h3>Patient Rapport</h3>
+                <p>Strong communication skills to develop meaningful rapport with patients and their families for better care outcomes.</p>
+            </div>
+            <div class="service-box">
+                <i class="fas fa-virus-slash"></i>
+                <h3>Infection Control</h3>
+                <p>Comprehensive knowledge in infection prevention and control (IPAC) to maintain a safe healthcare environment.</p>
             </div>
         </div>
     </section>
 
-    <!-- Work Experience -->
+    <!-- Work Experience Section -->
     <section id="experience" style="background: #eceff1;">
-        <h2 class="section-title">Work Experience</h2>
+        <h2 class="section-title">Professional Experience</h2>
         
         <div class="experience-item">
-            <span class="exp-date">2022 - Present</span>
+            <span class="exp-date">2022 - PRESENT</span>
             <div class="exp-title">Personal Support Worker</div>
-            <div class="exp-location">Vaughan & Woodbridge, ON (Private Employers / Villa Colombo / Agencies)</div>
+            <div class="exp-location">Vaughan, Woodbridge & Kleinburg, ON</div>
             <ul>
-                <li>Provide care to individuals with mental and physical disabilities.</li>
-                <li>Monitor and document vital signs and patient progress.</li>
-                <li>Ensure client safety, comfort, and light housekeeping for a clean environment.</li>
-                <li>Maintain patient integrity and help them live life to the fullest.</li>
+                <li>Provided specialized care at Villa Colombo Vaughan Di Poci Center and Hospice Vaughan.</li>
+                <li>Monitored and documented patient progress and vital signs accurately.</li>
+                <li>Assisted with transfers, mobility exercises, and light housekeeping to ensure safety.</li>
+                <li>Maintained patient morale and integrity through compassionate interaction.</li>
             </ul>
         </div>
 
@@ -269,9 +294,9 @@
             <div class="exp-title">Emergency Room Nurse</div>
             <div class="exp-location">Antipolo City Hospital System, Philippines</div>
             <ul>
-                <li>Responded to medical emergencies in high-pressure environments.</li>
-                <li>Provided nursing care across all age groups following strict hospital protocols.</li>
-                <li>Informed patients and families about medical terminologies and procedures.</li>
+                <li>Provided high-standard nursing care to patients of all ages in emergency settings.</li>
+                <li>Responded to medical emergencies and documented critical doctor orders.</li>
+                <li>Ensured patients were fully informed about medical terminologies and procedures.</li>
             </ul>
         </div>
 
@@ -280,24 +305,37 @@
             <div class="exp-title">Emergency Room / Ward Nurse</div>
             <div class="exp-location">Antipolo Doctors Hospital, Philippines</div>
             <ul>
-                <li>Administered blood product transfusions and intravenous infusions.</li>
-                <li>Educated families on treatment procedures and ensuring patient satisfaction.</li>
-                <li>Ensured all doctor's orders were recorded and carried out promptly.</li>
+                <li>Administered blood product transfusions and intravenous (IV) infusions.</li>
+                <li>Recorded and executed complex doctor’s orders with 100% accuracy.</li>
+                <li>Educated patients and families on treatment plans and post-care procedures.</li>
             </ul>
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section id="testimonials">
-        <h2 class="section-title">Professional References</h2>
+    <!-- Education & Certs -->
+    <section>
+        <h2 class="section-title">Education & Credentials</h2>
+        <div style="max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+            <p><strong>Bachelors of Science in Nursing (2006)</strong><br>Arellano University, Philippines</p>
+            <hr style="margin: 15px 0; opacity: 0.2;">
+            <p><strong>Professional Licenses:</strong><br>
+            • Philippine Licensure: Registered Nurse (License #0421470)<br>
+            • Education Accredited by College of Nurses in Ontario (CNO)<br>
+            • Member: Integrated Filipino Canadian Nurses Association (IFCNA)</p>
+        </div>
+    </section>
+
+    <!-- Testimonials/References Section -->
+    <section id="testimonials" style="background: #fdfdfd;">
+        <h2 class="section-title">References</h2>
         <div class="testimonial-grid">
             <div class="testimonial-card">
-                "Reziel provides exceptional care with a deep sense of empathy. Her background as a nurse brings a level of expertise that is rare and highly valued."
-                <span class="ref-name">- Tina Nunzia Dragonetti</span>
+                "Reziel is a highly empathic professional. Her nursing background gives her a unique edge in providing clinical and personal support that is second to none."
+                <span class="ref-name">Tina Nunzia Dragonetti</span>
             </div>
             <div class="testimonial-card">
-                "Professional, punctual, and highly skilled. Reziel has a natural ability to connect with patients and make them feel safe and cared for."
-                <span class="ref-name">- Howard Lis</span>
+                "Reliable, professional, and deeply caring. Reziel ensures her patients not only stay safe but also maintain their dignity and happiness."
+                <span class="ref-name">Howard Lis</span>
             </div>
         </div>
     </section>
@@ -307,28 +345,24 @@
         <h2 class="section-title">Contact Me</h2>
         <div class="contact-container">
             <div class="contact-info">
-                <h3>Get in Touch</h3>
-                <p>I am available for private care and healthcare facility roles in the Woodbridge and GTA area.</p>
+                <h3>Let's Connect</h3>
+                <p>I am currently available for PSW and healthcare roles in Woodbridge, Vaughan, and the Greater Toronto Area.</p>
                 <br>
                 <div><i class="fas fa-map-marker-alt"></i> 83 Sunset Ridge, Woodbridge, ON L4H 1W7</div>
                 <div><i class="fas fa-phone"></i> 437 428 8090</div>
                 <div><i class="fas fa-envelope"></i> reziel.santos1983@gmail.com</div>
-                <br>
-                <h4>Education & Licensing</h4>
-                <p>BSc Nursing - Arellano University (2006)</p>
-                <p>Member of IFCNA | CNO Accredited Education</p>
             </div>
             <form>
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
-                <textarea rows="5" placeholder="Your Message" required></textarea>
+                <input type="text" placeholder="Your Full Name" required>
+                <input type="email" placeholder="Your Email Address" required>
+                <textarea rows="5" placeholder="How can I help you today?" required></textarea>
                 <button type="submit">Send Message</button>
             </form>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2023 REZIEL G. SANTOS. All Rights Reserved.</p>
+        <p>&copy; 2024 REZIEL G. SANTOS | Professional Portfolio</p>
     </footer>
 
 </body>
