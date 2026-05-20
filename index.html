@@ -3,332 +3,360 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reziel G. Santos | Professional Personal Support Worker</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Reziel G. Santos | Personal Support Worker</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #2c3e50;
-            --secondary: #3498db;
-            --accent: #e74c3c;
-            --light: #f4f7f6;
-            --white: #ffffff;
-            --text: #333;
+            --bg-color: #000000;
+            --card-bg: #111111;
+            --card-border: #222222;
+            --text-main: #ffffff;
+            --text-dim: #a0a0a0;
+            --accent: #ffffff;
+            --pill-bg: #1a1a1a;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
 
         body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
             line-height: 1.6;
-            color: var(--text);
-            background-color: var(--light);
+            overflow-x: hidden;
         }
 
-        /* Navigation */
+        /* Floating Navigation */
         nav {
-            background: var(--white);
-            padding: 1rem 5%;
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 600px;
+            background: rgba(20, 20, 20, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--card-border);
+            padding: 10px 25px;
+            border-radius: 50px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             z-index: 1000;
         }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--primary);
-            letter-spacing: 1px;
-        }
-
         .nav-links {
-            list-style: none;
             display: flex;
-        }
-
-        .nav-links li {
-            margin-left: 20px;
+            gap: 20px;
+            list-style: none;
         }
 
         .nav-links a {
+            color: var(--text-dim);
             text-decoration: none;
-            color: var(--primary);
-            font-weight: 500;
+            font-size: 14px;
             transition: 0.3s;
         }
 
-        .nav-links a:hover {
-            color: var(--secondary);
+        .nav-links a:hover { color: var(--text-main); }
+
+        .btn-talk {
+            background: var(--text-main);
+            color: black;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
         }
 
         /* Hero Section */
         .hero {
-            height: 80vh;
-            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
+            padding: 150px 10% 80px;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
             align-items: center;
-            text-align: center;
-            color: var(--white);
-            padding: 0 20px;
-            margin-top: 60px;
+            justify-content: space-between;
+            min-height: 80vh;
         }
 
-        .hero h1 { font-size: 3.5rem; margin-bottom: 10px; }
-        .hero p { font-size: 1.2rem; max-width: 700px; }
+        .hero-content { flex: 1; }
+        .hero-content span { color: var(--text-dim); font-size: 18px; }
+        .hero-content h1 {
+            font-size: 56px;
+            line-height: 1.1;
+            margin: 15px 0;
+            font-weight: 700;
+        }
+        .hero-content p {
+            color: var(--text-dim);
+            max-width: 450px;
+            margin-bottom: 30px;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .hero-image img {
+            width: 400px;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 30px;
+            background: var(--card-bg);
+            /* This gives it that professional portrait look from your image */
+        }
 
         /* Section Styling */
-        section { padding: 80px 10%; }
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-            font-size: 2.5rem;
-            color: var(--primary);
-            position: relative;
-        }
-        .section-title::after {
-            content: '';
-            width: 50px;
-            height: 3px;
-            background: var(--secondary);
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
+        section { padding: 80px 10%; text-align: center; }
+        .section-tag { color: var(--text-dim); font-size: 32px; margin-bottom: 10px; font-weight: 600; }
+        .section-sub { color: var(--text-dim); margin-bottom: 50px; display: block; }
 
         /* Services Grid */
-        .services-container {
+        .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
         }
 
-        .service-box {
-            background: var(--white);
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
             padding: 30px;
-            border-radius: 8px;
-            text-align: center;
+            border-radius: 20px;
+            text-align: left;
             transition: 0.3s;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
         }
 
-        .service-box:hover { transform: translateY(-5px); }
-        .service-box i { font-size: 2.5rem; color: var(--secondary); margin-bottom: 15px; }
+        .card:hover { border-color: #444; }
+        .card h3 { margin-bottom: 15px; font-size: 20px; }
+        .card p { color: var(--text-dim); font-size: 14px; margin-bottom: 20px; }
 
-        /* Experience Timeline */
-        .experience-item {
-            background: var(--white);
-            padding: 25px;
-            border-left: 5px solid var(--secondary);
-            margin-bottom: 20px;
-            border-radius: 0 8px 8px 0;
-        }
-        .exp-date { font-weight: bold; color: var(--secondary); }
-        .exp-title { font-size: 1.3rem; font-weight: bold; margin: 5px 0; }
-        .exp-location { font-style: italic; color: #666; margin-bottom: 10px; }
-
-        /* Testimonials */
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-        }
-        .testimonial-card {
-            background: #fff;
-            padding: 30px;
+        .tag-pill {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            padding: 5px 12px;
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            font-style: italic;
-        }
-        .ref-name {
-            display: block;
-            margin-top: 15px;
-            font-weight: bold;
-            font-style: normal;
-            color: var(--secondary);
+            font-size: 12px;
+            display: inline-block;
+            margin-right: 5px;
+            margin-top: 5px;
+            color: var(--text-dim);
         }
 
-        /* Contact Section */
-        .contact-container {
+        /* Stats Section */
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 80px;
+            margin-top: 40px;
+        }
+        .stat-item h2 { font-size: 40px; }
+        .stat-item p { color: var(--text-dim); font-size: 14px; }
+
+        /* Experience Pills */
+        .approach-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 40px 0;
         }
-        .contact-info i { margin-right: 15px; color: var(--secondary); }
-        .contact-info div { margin-bottom: 20px; font-size: 1.1rem; }
-        
-        form input, form textarea {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 15px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
+        .approach-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            padding: 20px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
-        form button {
-            background: var(--secondary);
-            color: white;
-            padding: 12px 30px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 1rem;
+        .step-num {
+            background: #222;
+            padding: 5px 12px;
+            border-radius: 8px;
+            font-weight: bold;
         }
 
+        /* Footer / Contact */
         footer {
-            background: var(--primary);
-            color: white;
+            padding: 60px 10%;
+            border-top: 1px solid var(--card-border);
             text-align: center;
-            padding: 20px;
+            color: var(--text-dim);
         }
 
         @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .contact-container, .testimonial-grid { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 2.2rem; }
+            .hero { flex-direction: column-reverse; text-align: center; padding-top: 100px; }
+            .hero-image img { width: 100%; height: auto; margin-bottom: 30px; }
+            .approach-grid { grid-template-columns: 1fr; }
+            .stats { gap: 20px; flex-wrap: wrap; }
+            .hero-content h1 { font-size: 38px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigation -->
     <nav>
-        <div class="logo">REZIEL G. SANTOS</div>
+        <div style="font-weight: bold; letter-spacing: -1px;">RS</div>
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#services">Services</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#testimonials">References</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#work">Experience</a></li>
         </ul>
+        <a href="mailto:reziel.santos1983@gmail.com" class="btn-talk">Let's Talk</a>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero" id="home">
-        <h1>REZIEL G. SANTOS</h1>
-        <p>BSc Nursing | Personal Support Worker</p>
-        <p style="margin-top:20px;">Dedicated Healthcare Professional with over 10 years of experience providing holistic care, focusing on safety, dignity, and effective communication.</p>
+        <div class="hero-content">
+            <span>I am Reziel</span>
+            <h1>Personal Support Worker & Nursing Professional</h1>
+            <p>Providing holistic care with a focus on safety, dignity, and effective communication. Over 10 years of experience in clinical and private settings.</p>
+            <div style="display: flex; gap: 15px;">
+                <a href="mailto:reziel.santos1983@gmail.com" class="btn-talk" style="padding: 12px 25px;">Contact Me</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <!-- Ensure your image is named bon.png -->
+            <img src="bon.png" alt="Reziel G. Santos">
+        </div>
     </section>
 
-    <!-- Qualifications/Services -->
     <section id="services">
-        <h2 class="section-title">Professional Services</h2>
-        <div class="services-container">
-            <div class="service-box">
-                <i class="fas fa-user-nurse"></i>
-                <h3>Holistic Patient Care</h3>
-                <p>Assisting with activities of daily living (ADLs), dressing, bathing, and hygiene with utmost dignity.</p>
+        <h2 class="section-tag">Services</h2>
+        <span class="section-sub">Delivering compassionate and professional healthcare support</span>
+        <div class="grid">
+            <div class="card">
+                <h3>Holistic Personal Care</h3>
+                <p>Extensive experience assisting clients with dressing, bathing, and all activities of daily living.</p>
+                <div class="tag-pill">ADL Support</div>
+                <div class="tag-pill">Dignity First</div>
             </div>
-            <div class="service-box">
-                <i class="fas fa-heartbeat"></i>
+            <div class="card">
                 <h3>Clinical Monitoring</h3>
-                <p>Expertise in monitoring vital signs, documenting progress, and managing intravenous infusions.</p>
+                <p>Monitoring and documenting patient progress, vital signs, and carrying out doctor's orders.</p>
+                <div class="tag-pill">Vitals Tracking</div>
+                <div class="tag-pill">Clinical Accuracy</div>
             </div>
-            <div class="service-box">
-                <i class="fas fa-wheelchair"></i>
-                <h3>Mobility Support</h3>
-                <p>Safe patient transfers, mobility exercises, and ensuring a hazard-free environment.</p>
+            <div class="card">
+                <h3>Mobility & Safety</h3>
+                <p>Safe patient transfers, mobility exercises, and maintaining a hazard-free environment.</p>
+                <div class="tag-pill">Transfers</div>
+                <div class="tag-pill">Safety Protocols</div>
             </div>
-            <div class="service-box">
-                <i class="fas fa-hands-helping"></i>
-                <h3>Emotional Support</h3>
-                <p>Developing rapport with patients and families to boost morale and mental well-being.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Work Experience -->
-    <section id="experience" style="background: #eceff1;">
-        <h2 class="section-title">Work Experience</h2>
-        
-        <div class="experience-item">
-            <span class="exp-date">2022 - Present</span>
-            <div class="exp-title">Personal Support Worker</div>
-            <div class="exp-location">Vaughan & Woodbridge, ON (Private Employers / Villa Colombo / Agencies)</div>
-            <ul>
-                <li>Provide care to individuals with mental and physical disabilities.</li>
-                <li>Monitor and document vital signs and patient progress.</li>
-                <li>Ensure client safety, comfort, and light housekeeping for a clean environment.</li>
-                <li>Maintain patient integrity and help them live life to the fullest.</li>
-            </ul>
-        </div>
-
-        <div class="experience-item">
-            <span class="exp-date">2022</span>
-            <div class="exp-title">Emergency Room Nurse</div>
-            <div class="exp-location">Antipolo City Hospital System, Philippines</div>
-            <ul>
-                <li>Responded to medical emergencies in high-pressure environments.</li>
-                <li>Provided nursing care across all age groups following strict hospital protocols.</li>
-                <li>Informed patients and families about medical terminologies and procedures.</li>
-            </ul>
-        </div>
-
-        <div class="experience-item">
-            <span class="exp-date">2009 - 2014</span>
-            <div class="exp-title">Emergency Room / Ward Nurse</div>
-            <div class="exp-location">Antipolo Doctors Hospital, Philippines</div>
-            <ul>
-                <li>Administered blood product transfusions and intravenous infusions.</li>
-                <li>Educated families on treatment procedures and ensuring patient satisfaction.</li>
-                <li>Ensured all doctor's orders were recorded and carried out promptly.</li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section id="testimonials">
-        <h2 class="section-title">Professional References</h2>
-        <div class="testimonial-grid">
-            <div class="testimonial-card">
-                "Reziel provides exceptional care with a deep sense of empathy. Her background as a nurse brings a level of expertise that is rare and highly valued."
-                <span class="ref-name">- Tina Nunzia Dragonetti</span>
-            </div>
-            <div class="testimonial-card">
-                "Professional, punctual, and highly skilled. Reziel has a natural ability to connect with patients and make them feel safe and cared for."
-                <span class="ref-name">- Howard Lis</span>
+            <div class="card">
+                <h3>Nursing Expertise</h3>
+                <p>Trained Emergency Room Nurse with knowledge in infection control and emergency response.</p>
+                <div class="tag-pill">ER Experience</div>
+                <div class="tag-pill">Infection Control</div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2 class="section-title">Contact Me</h2>
-        <div class="contact-container">
-            <div class="contact-info">
-                <h3>Get in Touch</h3>
-                <p>I am available for private care and healthcare facility roles in the Woodbridge and GTA area.</p>
-                <br>
-                <div><i class="fas fa-map-marker-alt"></i> 83 Sunset Ridge, Woodbridge, ON L4H 1W7</div>
-                <div><i class="fas fa-phone"></i> 437 428 8090</div>
-                <div><i class="fas fa-envelope"></i> reziel.santos1983@gmail.com</div>
-                <br>
-                <h4>Education & Licensing</h4>
-                <p>BSc Nursing - Arellano University (2006)</p>
-                <p>Member of IFCNA | CNO Accredited Education</p>
+    <section id="about" style="background: #050505;">
+        <h2 class="section-tag">About Me</h2>
+        <p style="color: var(--text-dim); max-width: 800px; margin: 0 auto 40px;">
+            I am a healthcare professional passionate about crafting safe, comfortable, and dignified environments for patients. 
+            I focus on holistic care, ensuring both physical health and mental morale are supported.
+        </p>
+
+        <h3 style="margin-top: 50px; font-size: 14px; color: var(--text-dim); text-transform: uppercase;">My Approach</h3>
+        <div class="approach-grid">
+            <div class="approach-card">
+                <span class="step-num">01</span>
+                <span style="font-size: 14px;">Understand patient needs</span>
             </div>
-            <form>
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
-                <textarea rows="5" placeholder="Your Message" required></textarea>
-                <button type="submit">Send Message</button>
-            </form>
+            <div class="approach-card">
+                <span class="step-num">02</span>
+                <span style="font-size: 14px;">Ensure clinical safety</span>
+            </div>
+            <div class="approach-card">
+                <span class="step-num">03</span>
+                <span style="font-size: 14px;">Promote Independence</span>
+            </div>
+        </div>
+
+        <div class="stats">
+            <div class="stat-item">
+                <h2>10+</h2>
+                <p>Years of Experience</p>
+            </div>
+            <div class="stat-item">
+                <h2>100%</h2>
+                <p>Patient Satisfaction</p>
+            </div>
+            <div class="stat-item">
+                <h2>RN</h2>
+                <p>Licensed Background</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="work">
+        <h2 class="section-tag">Experience</h2>
+        <span class="section-sub">My professional journey in Canada and the Philippines</span>
+        <div class="grid">
+            <!-- Experience Item 1 -->
+            <div class="card">
+                <span style="color: var(--text-dim); font-size: 12px;">2022 - Present</span>
+                <h3 style="margin-top: 10px;">Personal Support Worker</h3>
+                <p>Villa Colombo Vaughan, Hospice Vaughan, Private Employers.</p>
+                <div class="tag-pill">LTC</div>
+                <div class="tag-pill">Private Care</div>
+            </div>
+            <!-- Experience Item 2 -->
+            <div class="card">
+                <span style="color: var(--text-dim); font-size: 12px;">2022</span>
+                <h3 style="margin-top: 10px;">ER Nurse</h3>
+                <p>Antipolo City Hospital System, Philippines.</p>
+                <div class="tag-pill">Emergency Care</div>
+                <div class="tag-pill">Triage</div>
+            </div>
+            <!-- Experience Item 3 -->
+            <div class="card">
+                <span style="color: var(--text-dim); font-size: 12px;">2009 - 2014</span>
+                <h3 style="margin-top: 10px;">ER / Ward Nurse</h3>
+                <p>Antipolo Doctors Hospital, Philippines.</p>
+                <div class="tag-pill">IV Infusion</div>
+                <div class="tag-pill">Patient Education</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2 class="section-tag">Qualifications</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Core Skills</h3>
+                <div class="tag-pill">Multitasking</div>
+                <div class="tag-pill">Problem Solving</div>
+                <div class="tag-pill">Empathy</div>
+                <div class="tag-pill">Communication</div>
+            </div>
+            <div class="card">
+                <h3>Medical Tech</h3>
+                <div class="tag-pill">Vitals Monitoring</div>
+                <div class="tag-pill">Computer Literacy</div>
+                <div class="tag-pill">Documentation</div>
+            </div>
+            <div class="card">
+                <h3>Licenses</h3>
+                <div class="tag-pill">BSc Nursing</div>
+                <div class="tag-pill">IFCNA Member</div>
+                <div class="tag-pill">CNO Accredited</div>
+            </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2023 REZIEL G. SANTOS. All Rights Reserved.</p>
+        <p>REZIEL G. SANTOS</p>
+        <p style="font-size: 13px; margin-top: 10px;">83 SUNSET RIDGE WOODBRIDGE, ON L4H 1W7 | 437 428 8090</p>
+        <p style="font-size: 12px; margin-top: 20px; color: #444;">&copy; 2023 All Rights Reserved.</p>
     </footer>
 
 </body>
