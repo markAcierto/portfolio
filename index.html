@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name | Portfolio 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #0a0a0a; color: #ededed; }
+        .logo-font { font-family: 'Space+Grotesk', sans-serif; }
+        .bento-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        .bento-card:hover {
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-4px);
+            background: rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+<body class="selection:bg-white selection:text-black">
+
+    <!-- Navigation / Header -->
+    <nav class="fixed w-full z-50 backdrop-blur-md border-b border-white/5 py-4">
+        <div class="max-w-6xl mx-auto px-6 flex justify-between items-center">
+            <!-- Name Logo -->
+            <a href="#" class="logo-font text-2xl font-extrabold tracking-tighter group">
+                YOUR<span class="text-white group-hover:text-blue-500 transition-colors">NAME</span><span class="text-blue-500">.</span>
+            </a>
+            <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-400">
+                <a href="#services" class="hover:text-white transition-colors">Services</a>
+                <a href="#experience" class="hover:text-white transition-colors">Experience</a>
+                <a href="#work" class="hover:text-white transition-colors">Work</a>
+                <a href="#testimonials" class="hover:text-white transition-colors">Feedback</a>
+                <a href="#contact" class="px-4 py-2 bg-white text-black rounded-full hover:bg-gray-200 transition-all">Hire Me</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto px-6 pt-32">
+        
+        <!-- Hero Section -->
+        <section class="mb-24">
+            <h1 class="text-5xl md:text-8xl font-extrabold tracking-tight mb-6">
+                Crafting digital <br> <span class="text-gray-500">experiences.</span>
+            </h1>
+            <p class="text-xl text-gray-400 max-w-2xl leading-relaxed">
+                I am a [Your Profession] specializing in building high-performance, beautiful applications. Let's turn your vision into a digital reality.
+            </p>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="mb-32">
+            <h2 class="text-xs uppercase tracking-[0.3em] text-blue-500 font-bold mb-8 italic">Services</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bento-card p-8 rounded-3xl">
+                    <i data-lucide="layers" class="mb-4 text-blue-500"></i>
+                    <h3 class="text-xl font-bold mb-2">UI/UX Design</h3>
+                    <p class="text-gray-400 text-sm">Minimalist interfaces designed for conversion and user delight.</p>
+                </div>
+                <div class="bento-card p-8 rounded-3xl">
+                    <i data-lucide="code" class="mb-4 text-blue-500"></i>
+                    <h3 class="text-xl font-bold mb-2">Development</h3>
+                    <p class="text-gray-400 text-sm">Clean, scalable code using modern stacks like Next.js and Tailwind.</p>
+                </div>
+                <div class="bento-card p-8 rounded-3xl">
+                    <i data-lucide="bar-chart" class="mb-4 text-blue-500"></i>
+                    <h3 class="text-xl font-bold mb-2">Strategy</h3>
+                    <p class="text-gray-400 text-sm">Data-driven approaches to solve complex business problems.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Work Experience -->
+        <section id="experience" class="mb-32">
+            <h2 class="text-xs uppercase tracking-[0.3em] text-blue-500 font-bold mb-8 italic">Work Experience</h2>
+            <div class="space-y-12">
+                <div class="flex flex-col md:flex-row md:items-center justify-between border-b border-white/5 pb-8">
+                    <div>
+                        <h3 class="text-2xl font-bold">Senior Product Designer</h3>
+                        <p class="text-gray-500 font-medium">TechGiant Inc.</p>
+                    </div>
+                    <span class="text-gray-400 text-sm mt-2 md:mt-0 italic">2023 — Present</span>
+                </div>
+                <div class="flex flex-col md:flex-row md:items-center justify-between border-b border-white/5 pb-8">
+                    <div>
+                        <h3 class="text-2xl font-bold">Frontend Developer</h3>
+                        <p class="text-gray-500 font-medium">Creative Studio</p>
+                    </div>
+                    <span class="text-gray-400 text-sm mt-2 md:mt-0 italic">2021 — 2023</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Previous Works (Portfolio Grid) -->
+        <section id="work" class="mb-32">
+            <div class="flex justify-between items-end mb-12">
+                <h2 class="text-xs uppercase tracking-[0.3em] text-blue-500 font-bold italic">Previous Works</h2>
+                <a href="#" class="text-sm border-b border-white/20 hover:border-white transition-all">View all projects</a>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Project 1 -->
+                <div class="group cursor-pointer">
+                    <div class="aspect-video bg-gray-900 rounded-3xl mb-6 overflow-hidden">
+                        <div class="w-full h-full bg-gradient-to-br from-blue-600 to-purple-700 opacity-20 group-hover:opacity-40 transition-opacity"></div>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-1">Project Nova</h3>
+                    <p class="text-gray-500">SaaS Platform Design & Dev</p>
+                </div>
+                <!-- Project 2 -->
+                <div class="group cursor-pointer">
+                    <div class="aspect-video bg-gray-900 rounded-3xl mb-6 overflow-hidden">
+                        <div class="w-full h-full bg-gradient-to-br from-emerald-500 to-teal-700 opacity-20 group-hover:opacity-40 transition-opacity"></div>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-1">E-Commerce Flow</h3>
+                    <p class="text-gray-500">Consumer Experience Design</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section id="testimonials" class="mb-32">
+            <h2 class="text-xs uppercase tracking-[0.3em] text-blue-500 font-bold mb-12 italic">Testimonials</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bento-card p-10 rounded-3xl italic text-gray-300">
+                    "Your Name brought an incredible level of detail to our project. The results exceeded our KPIs within two months."
+                    <div class="mt-6 not-italic flex items-center gap-4">
+                        <div class="w-10 h-10 bg-gray-700 rounded-full"></div>
+                        <div>
+                            <p class="text-white font-bold text-sm">Jane Doe</p>
+                            <p class="text-gray-500 text-xs">CEO, Innovate Ltd</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bento-card p-10 rounded-3xl italic text-gray-300">
+                    "Rare to find a developer who truly understands design. A seamless experience from start to finish."
+                    <div class="mt-6 not-italic flex items-center gap-4">
+                        <div class="w-10 h-10 bg-gray-700 rounded-full"></div>
+                        <div>
+                            <p class="text-white font-bold text-sm">Mark Sloan</p>
+                            <p class="text-gray-500 text-xs">Product Lead, Velocity</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="mb-32 bento-card p-12 rounded-[3rem] text-center">
+            <h2 class="text-4xl md:text-6xl font-extrabold mb-8">Start a project.</h2>
+            <p class="text-gray-400 mb-12 max-w-lg mx-auto italic">Currently accepting new freelance work and full-time opportunities for late 2026.</p>
+            <form class="max-w-md mx-auto space-y-4">
+                <input type="email" placeholder="Your Email" class="w-full bg-white/5 border border-white/10 rounded-2xl p-4 focus:outline-none focus:border-blue-500 transition-colors">
+                <textarea placeholder="Tell me about your project" rows="4" class="w-full bg-white/5 border border-white/10 rounded-2xl p-4 focus:outline-none focus:border-blue-500 transition-colors"></textarea>
+                <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-2xl transition-all shadow-lg shadow-blue-900/20">Send Message</button>
+            </form>
+        </section>
+
+    </main>
+
+    <footer class="border-t border-white/5 py-12">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-gray-500 text-sm">
+            <p>&copy; 2026 YOURNAME. All rights reserved.</p>
+            <div class="flex space-x-6 mt-4 md:mt-0">
+                <a href="#" class="hover:text-white transition-colors">LinkedIn</a>
+                <a href="#" class="hover:text-white transition-colors">GitHub</a>
+                <a href="#" class="hover:text-white transition-colors">Dribbble</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
